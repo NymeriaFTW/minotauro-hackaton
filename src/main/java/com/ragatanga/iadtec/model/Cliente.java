@@ -25,6 +25,7 @@ public class Cliente {
 	@Column(unique=true)
 	private String cpf;
 	
+	@NotNull
 	private Date dataNascimento;
 	
 	@Column(unique=true)

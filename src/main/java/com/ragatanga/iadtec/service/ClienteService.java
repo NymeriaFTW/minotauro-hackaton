@@ -4,14 +4,20 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ragatanga.iadtec.model.Cliente;
 import com.ragatanga.iadtec.model.ClienteDTO;
+import com.ragatanga.iadtec.model.Estado;
+import com.ragatanga.iadtec.repositories.ClienteRepository;
 
 @Service
 public class ClienteService {
 
+	@Autowired
+	ClienteRepository clienteRepository;
+	
 	/**
 	 * Conversão de uma string no formato "dd/MM/yyyy" para o formato Date.
 	 * @param dataNasc
@@ -44,5 +50,16 @@ public class ClienteService {
 		cliente.setSituacao(clienteDTO.getSituacao());
 		cliente.setEstado(clienteDTO.getEstado());		
 		return cliente;
+	}
+	
+	public Cliente editar(Long idCliente, ClienteDTO clienteDTO) {
+		Cliente updatedCliente;
+		clienteRepository.deleteById(idCliente);
+		updatedCliente = this.clienteRepository.save(atribuiDTO(clienteDTO));
+		return updatedCliente;
+	}
+	
+	public void deleteCliente(Long idCliente) {
+		this.clienteRepository.deleteById(idCliente);
 	}
 }
