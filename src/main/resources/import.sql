@@ -1,0 +1,5 @@
+INSERT INTO PAIS VALUES (1, 'Brasil');
+
+INSERT INTO ESTADO VALUES (1, 'Paraná', 'PR', 1);
+INSERT INTO ESTADO VALUES (2, 'Santa Catarina', 'SC', 1);
+INSERT INTO ESTADO VALUES (3, 'São Paulo', 'SP', 1);
