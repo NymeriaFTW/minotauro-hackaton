@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ragatanga.iadtec.model.Pais;
+import com.ragatanga.iadtec.repositories.PaisRepository;
 import com.ragatanga.iadtec.service.PaisService;
 
 @RestController
@@ -23,11 +24,14 @@ import com.ragatanga.iadtec.service.PaisService;
 public class PaisController {
 	
 	@Autowired
+	private PaisRepository paisRepository;
+	
+	@Autowired
 	private PaisService paisService;
 	
 	@GetMapping()
 	public ResponseEntity<List<Pais>> listarPaises() {
-		List<Pais> paises = paisService.findAll();
+		List<Pais> paises = this.paisRepository.findAll();
 		return ResponseEntity.ok(paises);
 	}
 	

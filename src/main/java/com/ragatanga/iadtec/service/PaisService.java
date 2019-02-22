@@ -14,10 +14,6 @@ public class PaisService {
 	@Autowired
 	PaisRepository paisRepository;
 	
-	public List<Pais> findAll() {
-		return this.paisRepository.findAll();
-	}
-	
 	public Pais salvarPais(Pais pais) {
 		return this.paisRepository.save(pais);
 	} 
