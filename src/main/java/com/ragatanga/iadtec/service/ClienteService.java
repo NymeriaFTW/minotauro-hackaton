@@ -1,6 +1,5 @@
 package com.ragatanga.iadtec.service;
 
-
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,8 +12,6 @@ import com.ragatanga.iadtec.model.ClienteDTO;
 @Service
 public class ClienteService {
 
-	
-	
 	/**
 	 * Conversão de uma string no formato "dd/MM/yyyy" para o formato Date.
 	 * @param dataNasc

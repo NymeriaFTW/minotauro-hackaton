@@ -2,6 +2,7 @@ package com.ragatanga.iadtec.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,16 +22,17 @@ public class Cliente {
 	private String nome;
 	
 	@NotNull
+	@Column(unique=true)
 	private String cpf;
 	
 	private Date dataNascimento;
 	
+	@Column(unique=true)
 	@NotNull
 	private String email;
 	
 	@NotNull
-	private String 
-	situacao;
+	private String situacao;
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_estado", nullable = false)

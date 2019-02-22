@@ -24,7 +24,8 @@ public class PaisService {
 	
 	public Pais editar(Long idPais, Pais pais) {
 		Pais updatedPais = new Pais();
-		return this.paisRepository.save(pais);
+		updatedPais = this.paisRepository.save(pais);
+		return updatedPais;
 	}
 	
 	
