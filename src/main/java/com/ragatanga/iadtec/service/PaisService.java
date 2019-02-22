@@ -26,5 +26,11 @@ public class PaisService {
 		this.paisRepository.deleteById(idPais);
 	}
 	
+	public Pais editar(Long idPais, Pais pais) {
+		Pais updatedPais = new Pais();
+		return this.paisRepository.save(pais);
+	}
+	
+	
 	
 }

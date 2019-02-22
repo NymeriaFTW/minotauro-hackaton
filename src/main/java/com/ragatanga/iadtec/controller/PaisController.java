@@ -37,14 +37,14 @@ public class PaisController {
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Pais> update(@PathVariable("id") long id,
+	public ResponseEntity<Pais> editar(@PathVariable("id") long id,
 	                                        @RequestBody Pais pais) {
-		
-		
-		return ResponseEntity.ok().build();
+		Pais updated = new Pais();
+		updated = this.paisService.editar(id, pais);
+		return ResponseEntity.ok().body(updated);
 	}
 	
-	@DeleteMapping(path ={"/id={id}"})
+	@DeleteMapping(path ={"/{id}"})
 	public ResponseEntity<?> delete(@PathVariable("id") long id) {
 		this.paisService.deletePais(id);
 		return ResponseEntity.ok().build();

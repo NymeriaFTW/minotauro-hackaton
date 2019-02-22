@@ -30,4 +30,6 @@ public class EstadoController {
 	public Estado saveEstado(@RequestBody Estado estado) {
 		return estadoRepository.save(estado);
 	}
+	
+	
 }
