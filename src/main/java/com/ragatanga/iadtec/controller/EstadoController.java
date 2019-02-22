@@ -14,7 +14,7 @@ import com.ragatanga.iadtec.model.Estado;
 import com.ragatanga.iadtec.repositories.EstadoRepository;
 
 @RestController
-@RequestMapping("/estado")
+@RequestMapping("api/estado")
 @CrossOrigin(origins = "*" )
 public class EstadoController {
 	

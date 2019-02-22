@@ -14,7 +14,7 @@ import com.ragatanga.iadtec.model.Cliente;
 import com.ragatanga.iadtec.repositories.ClienteRepository;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("api/cliente")
 @CrossOrigin(origins = "*" ) 
 public class ClienteController {
 	
