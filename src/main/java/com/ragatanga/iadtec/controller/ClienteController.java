@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ragatanga.iadtec.model.Cliente;
+import com.ragatanga.iadtec.model.ClienteDTO;
 import com.ragatanga.iadtec.repositories.ClienteRepository;
+import com.ragatanga.iadtec.service.ClienteService;
 
 @RestController
 @RequestMapping("api/cliente")
@@ -21,6 +23,9 @@ public class ClienteController {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	@Autowired
+	private ClienteService clienteService;
+	
 	
 	@GetMapping()
 	public List<Cliente> findAll() {
@@ -28,7 +33,8 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/save")
-	public Cliente saveClient(@RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
+	public Cliente saveClient(@RequestBody ClienteDTO clienteDTO) {
+		return clienteRepository.save(clienteService.atribuiDTO(clienteDTO));
 	}
+	
 }
