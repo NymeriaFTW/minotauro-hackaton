@@ -8,11 +8,11 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ragatanga</groupId>
-	<artifactId>ragatanga-iadtec</artifactId>
+	<groupId>com.minotauro</groupId>
+	<artifactId>minotauro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ragatanga-iadtec</name>
-	<description>Ragatanga Iadtec</description>
+	<name>minotauro</name>
+	<description>Hackaton Minotauro</description>
 
 	<properties>
 		<java.version>1.8</java.version>
