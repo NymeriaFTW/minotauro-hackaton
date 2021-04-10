@@ -8,7 +8,7 @@ public class ClienteDTO {
 	private String dataNascimento;
 	private String email;
 	private String situacao;
-	private Estado estado;
+	private Saida estado;
 
 	public Long getId() {
 		return id;
@@ -58,11 +58,11 @@ public class ClienteDTO {
 		this.situacao = situacao;
 	}
 
-	public Estado getEstado() {
+	public Saida getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
+	public void setEstado(Saida estado) {
 		this.estado = estado;
 	}
 }

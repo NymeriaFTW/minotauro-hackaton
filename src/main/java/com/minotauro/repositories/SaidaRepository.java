@@ -2,8 +2,8 @@ package com.minotauro.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.minotauro.model.Pais;
+import com.minotauro.model.Saida;
 
-public interface PaisRepository extends JpaRepository<Pais, Long> {
+public interface SaidaRepository extends JpaRepository<Saida, Long>{
 
 }

@@ -4,12 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Estado {
+public class Saida {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -18,50 +16,21 @@ public class Estado {
 	@NotNull
 	private String nome;
 	
-	@NotNull
-	private String uf;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "id_pais", nullable = false)
-	private Pais pais;
-	
-	
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
-	
-	public Pais getPais() {
-		return pais;
-	}
-
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -71,7 +40,6 @@ public class Estado {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,7 +48,7 @@ public class Estado {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		Saida other = (Saida) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -88,8 +56,5 @@ public class Estado {
 			return false;
 		return true;
 	}
-
-	
-	
 	
 }

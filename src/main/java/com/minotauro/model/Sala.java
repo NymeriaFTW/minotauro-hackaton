@@ -1,13 +1,18 @@
 package com.minotauro.model;
 
+
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
-public class Pais {
+public class Sala {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -15,7 +20,15 @@ public class Pais {
 	
 	@NotNull
 	private String nome;
-
+	
+	private boolean chegada;
+	
+	@Transient
+	private String visaoAtual;
+	
+	@Transient
+	private List<String> saidas;
+	
 	public Long getId() {
 		return id;
 	}
@@ -30,6 +43,14 @@ public class Pais {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public boolean isChegada() {
+		return chegada;
+	}
+	
+	public void setChegada(boolean chegada) {
+		this.chegada = chegada;
 	}
 
 	@Override
@@ -48,7 +69,7 @@ public class Pais {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pais other = (Pais) obj;
+		Sala other = (Sala) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -56,6 +77,21 @@ public class Pais {
 			return false;
 		return true;
 	}
-	
+
+	public String getVisaoAtual() {
+		return visaoAtual;
+	}
+
+	public void setVisaoAtual(String visaoAtual) {
+		this.visaoAtual = visaoAtual;
+	}
+
+	public List<String> getSaidas() {
+		return saidas;
+	}
+
+	public void setSaidas(List<String> saidas) {
+		this.saidas = saidas;
+	}
 	
 }

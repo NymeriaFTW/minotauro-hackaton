@@ -14,43 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.minotauro.model.Estado;
-import com.minotauro.model.Pais;
-import com.minotauro.repositories.EstadoRepository;
-import com.minotauro.service.EstadoService;
+import com.minotauro.model.Saida;
+import com.minotauro.repositories.SaidaRepository;
+import com.minotauro.service.SaidaService;
 
 @RestController
-@RequestMapping("api/estado")
+@RequestMapping("api/saida")
 @CrossOrigin(origins = "*" )
-public class EstadoController {
+public class SaidaController {
 	
 	@Autowired
-	private EstadoRepository estadoRepository;
+	private SaidaRepository saidaRepository;
 	
 	@Autowired
-	private EstadoService estadoService;
+	private SaidaService saidaService;
 	
 	@GetMapping()
-	public List<Estado> findAll() {
-		return estadoRepository.findAll();
+	public List<Saida> findAll() {
+		return saidaRepository.findAll();
 	}
 	
 	@PostMapping("/save")
-	public Estado saveEstado(@RequestBody Estado estado) {
-		return estadoRepository.save(estado);
+	public Saida saveSaida(@RequestBody Saida saida) {
+		return saidaRepository.save(saida);
 	}
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Estado> editar(@PathVariable("id") long id,
-	                                        @RequestBody Estado estado) {
-		Estado updated = new Estado();
-		updated = this.estadoService.editar(id, estado);
+	public ResponseEntity<Saida> editar(@PathVariable("id") long id,
+	                                        @RequestBody Saida saida) {
+		Saida updated = new Saida();
+		updated = this.saidaService.editar(id, saida);
 		return ResponseEntity.ok().body(updated);
 	}
 	
 	@DeleteMapping(path ={"/{id}"})
 	public ResponseEntity<?> delete(@PathVariable("id") long id) {
-		this.estadoService.deleteEstado(id);
+		this.saidaService.deleteSaida(id);
 		return ResponseEntity.ok().build();
 	}
 	
