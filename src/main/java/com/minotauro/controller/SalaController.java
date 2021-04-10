@@ -1,7 +1,5 @@
 package com.minotauro.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.minotauro.model.Sala;
-import com.minotauro.repositories.SalaRepository;
 import com.minotauro.service.SalaService;
 
 @RestController
@@ -24,21 +21,13 @@ import com.minotauro.service.SalaService;
 public class SalaController {
 	
 	@Autowired
-	private SalaRepository salaRepository;
-	
-	@Autowired
 	private SalaService salaService;
 	
 	@GetMapping()
 	public Sala iniciar() {
-		double inicio = Math.floor(Math.random() * (9 - 1 + 1) ) + 1;
-		Optional<Sala> sala = this.salaRepository.findById(Double.valueOf(inicio).longValue()).filter(s -> !s.isChegada());
-		if (!sala.isPresent()) {
-			sala = this.salaRepository.findFirstNaoChegada();
-		}
-		return sala.get();
+		return salaService.iniciar();
 	}
-	
+
 	@PostMapping("/save")
 	public Sala salvarSala(@RequestBody Sala sala) {
 		return this.salaService.salvarSala(sala);
