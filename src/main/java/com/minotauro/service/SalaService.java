@@ -57,8 +57,8 @@ public class SalaService {
 	}
 
 	private void populaBase(long tamanho) {
-		this.salaRepository.deleteAll();
 		this.salaSaidaRepository.deleteAll();
+		this.salaRepository.deleteAll();
 		List<Sala> salas = criaSalas(tamanho);
 		criaSalaSaida(salas, tamanho);
 	}
