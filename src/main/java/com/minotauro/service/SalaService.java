@@ -26,20 +26,6 @@ public class SalaService {
 	@Autowired
 	SalaSaidaRepository salaSaidaRepository;
 	
-	public Sala salvarSala(Sala pais) {
-		return this.salaRepository.save(pais);
-	} 
-	
-	public void deleteSala(Long idSala) {
-		this.salaRepository.deleteById(idSala);
-	}
-	
-	public Sala editar(Long idPais, Sala sala) {
-		Sala updatedPais = new Sala();
-		updatedPais = this.salaRepository.save(sala);
-		return updatedPais;
-	}
-	
 	public Sala iniciar(long tamanho) {
 		populaBase(tamanho);
 		double inicio = Math.floor(Math.random() * (9 - 1 + 1) ) + 1;
