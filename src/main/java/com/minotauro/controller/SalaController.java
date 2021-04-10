@@ -1,6 +1,7 @@
 package com.minotauro.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,7 +35,7 @@ public class SalaController {
 	}
 	
 	@GetMapping
-	public List<SalaSaida> mapa() throws Exception {
+	public List<Sala> mapa() throws Exception {
 		return this.salaService.getMapa();
 	}
 	

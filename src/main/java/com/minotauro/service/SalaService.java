@@ -2,7 +2,9 @@ package com.minotauro.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -130,8 +132,27 @@ public class SalaService {
 		return sala;
 	}
 
-	public List<SalaSaida> getMapa() {
-		return this.salaSaidaRepository.findAll();
+	public List<Sala> getMapa() {
+		List<SalaSaida> salasSaida = this.salaSaidaRepository.findAll();
+		List<Sala> salas = new ArrayList<>();
+		salasSaida.forEach(ss -> {
+			Sala sala = ss.getSala();
+			sala.addSaida(ss.getSaida().getNome());
+			if (salas.contains(sala)) {				
+				int indexOf = salas.indexOf(sala);
+				Sala sala2 = salas.get(indexOf);
+				if (!sala2.getSaidas().isEmpty()) {
+					if (!sala2.getSaidas().contains(ss.getSaida().getNome())) {
+						sala2.addSaida(ss.getSaida().getNome());
+					}
+				} else {
+					sala2.addSaida(ss.getSaida().getNome());
+				}
+			} else {
+				salas.add(sala);
+			}
+		});
+		return salas;
 	}
 	
 }

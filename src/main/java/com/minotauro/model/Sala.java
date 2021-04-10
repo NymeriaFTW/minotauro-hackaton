@@ -1,6 +1,7 @@
 package com.minotauro.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Sala {
 	private String visaoAtual;
 	
 	@Transient
-	private List<String> saidas;
+	private List<String> saidas = new ArrayList<>();
 	
 	@Transient
 	private Long tamanho;
@@ -117,6 +118,10 @@ public class Sala {
 
 	public void setTamanho(Long tamanho) {
 		this.tamanho = tamanho;
+	}
+
+	public void addSaida(String saida) {
+		this.saidas.add(saida);
 	}
 	
 }
