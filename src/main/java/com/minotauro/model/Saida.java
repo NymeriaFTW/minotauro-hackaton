@@ -16,6 +16,14 @@ public class Saida {
 	@NotNull
 	private String nome;
 	
+	public Saida(long id_saida) {
+		this.id = id_saida;
+	}
+
+	public Saida() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}

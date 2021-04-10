@@ -23,12 +23,12 @@ public class SalaController {
 	@Autowired
 	private SalaService salaService;
 	
-	@GetMapping()
-	public Sala iniciar() {
-		return salaService.iniciar();
+	@GetMapping("/{tamanho}")
+	public Sala iniciar(@PathVariable("tamanho") long tamanho) {		
+		return salaService.iniciar(tamanho);
 	}
 
-	@PostMapping("/save")
+	@GetMapping("/escolha")
 	public Sala salvarSala(@RequestBody Sala sala) {
 		return this.salaService.salvarSala(sala);
 	}

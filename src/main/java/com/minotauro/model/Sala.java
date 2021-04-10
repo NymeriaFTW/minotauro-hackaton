@@ -29,6 +29,20 @@ public class Sala {
 	@Transient
 	private List<String> saidas;
 	
+	public Sala(long numero, String nome) {
+		this.id = numero;
+		this.nome = nome;
+		this.chegada = false;
+	}
+
+	public Sala() {
+		super();
+	}
+
+	public Sala(Long id_sala) {
+		this.id = id_sala;
+	}
+
 	public Long getId() {
 		return id;
 	}

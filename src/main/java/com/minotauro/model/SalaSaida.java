@@ -22,6 +22,16 @@ public class SalaSaida {
 	@JoinColumn(name = "id_saida", nullable = false)
 	private Saida saida;
 
+	public SalaSaida(long id, long id_saida, Long id_sala) {
+		this.id = id;
+		this.sala = new Sala(id_sala);
+		this.saida = new Saida(id_saida);
+	}
+
+	public SalaSaida() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
