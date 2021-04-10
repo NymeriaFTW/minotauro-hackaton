@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.controller;
+package com.minotauro.controller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ragatanga.iadtec.model.Pais;
-import com.ragatanga.iadtec.repositories.PaisRepository;
-import com.ragatanga.iadtec.service.PaisService;
+import com.minotauro.model.Pais;
+import com.minotauro.repositories.PaisRepository;
+import com.minotauro.service.PaisService;
 
 @RestController
 @RequestMapping("api/pais")

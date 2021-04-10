@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.service;
+package com.minotauro.service;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -7,10 +7,10 @@ import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ragatanga.iadtec.model.Cliente;
-import com.ragatanga.iadtec.model.ClienteDTO;
-import com.ragatanga.iadtec.model.Estado;
-import com.ragatanga.iadtec.repositories.ClienteRepository;
+import com.minotauro.model.Cliente;
+import com.minotauro.model.ClienteDTO;
+import com.minotauro.model.Estado;
+import com.minotauro.repositories.ClienteRepository;
 
 @Service
 public class ClienteService {

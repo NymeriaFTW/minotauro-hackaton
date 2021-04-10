@@ -1,12 +1,12 @@
-package com.ragatanga.iadtec.service;
+package com.minotauro.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ragatanga.iadtec.model.Pais;
-import com.ragatanga.iadtec.repositories.PaisRepository;
+import com.minotauro.model.Pais;
+import com.minotauro.repositories.PaisRepository;
 
 @Service
 public class PaisService {

@@ -1,8 +1,8 @@
-package com.ragatanga.iadtec.repositories;
+package com.minotauro.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ragatanga.iadtec.model.Pais;
+import com.minotauro.model.Pais;
 
 public interface PaisRepository extends JpaRepository<Pais, Long> {
 

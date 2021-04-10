@@ -1,13 +1,13 @@
-package com.ragatanga.iadtec.service;
+package com.minotauro.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ragatanga.iadtec.model.Estado;
-import com.ragatanga.iadtec.model.Pais;
-import com.ragatanga.iadtec.repositories.EstadoRepository;
+import com.minotauro.model.Estado;
+import com.minotauro.model.Pais;
+import com.minotauro.repositories.EstadoRepository;
 
 @Service
 public class EstadoService {

@@ -1,5 +1,8 @@
-package com.ragatanga.iadtec.model;
+package com.minotauro.model;
 
+import java.sql.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Estado {
+public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,49 +22,78 @@ public class Estado {
 	private String nome;
 	
 	@NotNull
-	private String uf;
+	@Column(unique=true)
+	private String cpf;
+	
+	@NotNull
+	private Date dataNascimento;
+	
+	@Column(unique=true)
+	@NotNull
+	private String email;
+	
+	@NotNull
+	private String situacao;
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "id_pais", nullable = false)
-	private Pais pais;
-	
-	
+	@JoinColumn(name = "id_estado", nullable = false)
+	private Estado estado;
+
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getUf() {
-		return uf;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
-	
-	public Pais getPais() {
-		return pais;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
 	@Override
 	public int hashCode() {
@@ -71,7 +103,6 @@ public class Estado {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,7 +111,7 @@ public class Estado {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		Cliente other = (Cliente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

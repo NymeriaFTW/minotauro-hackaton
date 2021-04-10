@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.model;
+package com.minotauro.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

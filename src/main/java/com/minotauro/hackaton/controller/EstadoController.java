@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.controller;
+package com.minotauro.controller;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ragatanga.iadtec.model.Estado;
-import com.ragatanga.iadtec.model.Pais;
-import com.ragatanga.iadtec.repositories.EstadoRepository;
-import com.ragatanga.iadtec.service.EstadoService;
+import com.minotauro.model.Estado;
+import com.minotauro.model.Pais;
+import com.minotauro.repositories.EstadoRepository;
+import com.minotauro.service.EstadoService;
 
 @RestController
 @RequestMapping("api/estado")

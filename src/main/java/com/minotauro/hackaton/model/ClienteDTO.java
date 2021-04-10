@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.model;
+package com.minotauro.model;
 
 public class ClienteDTO {
 	

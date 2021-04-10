@@ -1,13 +1,13 @@
-package com.ragatanga.iadtec;
+package com.minotauro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RagatangaIadtecApplication {
+public class MinotauroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RagatangaIadtecApplication.class, args);
+		SpringApplication.run(MinotauroApplication.class, args);
 	}
 
 }
