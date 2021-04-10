@@ -1,4 +1,4 @@
-package com.ragatanga.iadtec.utils;
+package com.minotauro.utils;
 
 public class Utils {
 
