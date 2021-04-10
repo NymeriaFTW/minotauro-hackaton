@@ -52,10 +52,13 @@ public class SalaService {
 		Sala salaInicial = sala.get();
 		salaInicial.setVisaoAtual(saida.get().getNome());
 		salaInicial.setSaidas(this.salaSaidaRepository.findBySalaId(salaInicial));
+		salaInicial.setTamanho(tamanho);
 		return salaInicial;
 	}
 
 	private void populaBase(long tamanho) {
+		this.salaRepository.deleteAll();
+		this.salaSaidaRepository.deleteAll();
 		List<Sala> salas = criaSalas(tamanho);
 		criaSalaSaida(salas, tamanho);
 	}
@@ -101,7 +104,6 @@ public class SalaService {
 	}
 
 	private List<Sala> criaSalas(long tamanho) {
-		this.salaRepository.deleteAll();
 		List<Sala> salas = new ArrayList<>();
 		long numero = 1;
 		for (int i = 0; i < tamanho; i++) {
@@ -113,6 +115,33 @@ public class SalaService {
 		double idRandom = Math.floor(Math.random() * ((tamanho*tamanho) - 1 + 1) ) + 1;
 		salas.get(Double.valueOf(idRandom).intValue() - 1).setChegada(true);
 		return this.salaRepository.saveAll(salas);
+	}
+
+	public Sala getProximaSala(Long salaId, String saida, Long tamanho) throws Exception {
+		long proximaSala = 0;
+		switch (saida) {
+			case "N":
+				proximaSala = salaId - tamanho;
+				break;
+			case "O":
+				proximaSala = salaId - 1;
+				break;
+			case "S":
+				proximaSala = salaId + tamanho;
+				break;
+			default:
+				proximaSala = salaId + 1;
+				break;
+		}
+		Optional<Sala> optionalSala = this.salaRepository.findById(proximaSala);
+		if (!optionalSala.isPresent()) {
+			throw new Exception("Sala não existe.");
+		}
+		Sala sala = optionalSala.get();
+		sala.setVisaoAtual(saida);
+		sala.setSaidas(this.salaSaidaRepository.findBySalaId(sala));
+		sala.setTamanho(tamanho);
+		return sala;
 	}
 	
 }

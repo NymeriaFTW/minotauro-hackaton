@@ -29,6 +29,9 @@ public class Sala {
 	@Transient
 	private List<String> saidas;
 	
+	@Transient
+	private Long tamanho;
+	
 	public Sala(long numero, String nome) {
 		this.id = numero;
 		this.nome = nome;
@@ -106,6 +109,14 @@ public class Sala {
 
 	public void setSaidas(List<String> saidas) {
 		this.saidas = saidas;
+	}
+
+	public Long getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(Long tamanho) {
+		this.tamanho = tamanho;
 	}
 	
 }
