@@ -64,10 +64,10 @@ public class SalaService {
 				salvar.add(new SalaSaida(id++, 3, sala.getId()+tamanho));
 			} else {
 				if (quantidadePercorrida < (tamanho*linha) && linha != tamanho) {
-					if ((quantidadePercorrida) % 2 != 0) {
+					//if ((quantidadePercorrida) % 2 != 0) {
 						salvar.add(new SalaSaida(id++, 4, sala.getId()));
 						salvar.add(new SalaSaida(id++, 3, sala.getId()+tamanho));
-					}
+					//}
 					if ((quantidadePercorrida) % 2 == 0) {
 						salvar.add(new SalaSaida(id++, 1, sala.getId()));
 						salvar.add(new SalaSaida(id++, 2, sala.getId()+1));
@@ -128,6 +128,10 @@ public class SalaService {
 		sala.setSaidas(this.salaSaidaRepository.findBySalaId(sala));
 		sala.setTamanho(tamanho);
 		return sala;
+	}
+
+	public List<SalaSaida> getMapa() {
+		return this.salaSaidaRepository.findAll();
 	}
 	
 }

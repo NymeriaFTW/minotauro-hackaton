@@ -1,5 +1,7 @@
 package com.minotauro.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.minotauro.model.Sala;
+import com.minotauro.model.SalaSaida;
 import com.minotauro.service.SalaService;
 
 @RestController
@@ -28,6 +31,11 @@ public class SalaController {
 			@PathVariable("saida") String saida,
 			@PathVariable("tamanho") Long tamanho) throws Exception {
 		return this.salaService.getProximaSala(salaId, saida, tamanho);
+	}
+	
+	@GetMapping
+	public List<SalaSaida> mapa() throws Exception {
+		return this.salaService.getMapa();
 	}
 	
 }
